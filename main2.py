@@ -28,15 +28,12 @@ def main():
 
             i = 0
             while i < len(listOfPrize):
-                #print(i)
-                #print(listOfPrize[i])
                 i = i+1
 
-                if listOfPrize[i] == "Goat"
-                    print(f"index num is {i}")
-                    print(f"Let's open door  {i+1}")
-                    print(listOfPrize[i])
-                    break
+                if listOfPrize[i] == "Goat":
+                   if user_selection is not i:
+
+
 
 
 
