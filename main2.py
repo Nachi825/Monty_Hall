@@ -28,10 +28,10 @@ def main():
 
             i = 0
             while i < len(listOfPrize):
-                i = i+1
 
                 if listOfPrize[i] == "Goat":
                    if user_selection is not i:
+                       print(listOfPrize[i])
 
 
 
