@@ -1,4 +1,4 @@
-import random
+"""import random
 
 
 
@@ -40,4 +40,4 @@ if __name__ == '__main__':
     game = Monty_Hall()
     game.assignPrize()
     game.door_selection()
-    #game.behindTheDoor()
+""" #game.behindTheDoor()

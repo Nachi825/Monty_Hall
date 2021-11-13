@@ -8,35 +8,57 @@ def main():
     print(listOfPrize)
 
     #def user_selection
-    try:
-        print()
-        user_selection = int(input(("Which door would you like to pick? 1-3")))
+    while True:
+        try:
+            firstChoice = int(input(("Which door would you like to pick? 1-3")))
 
-    except ValueError:
-        print("Your input need to be numeric")
-
-    else:
-        if user_selection not in range(1, 4):
-            print("Your choice need to be between 1-3 inclusive")
+        except ValueError:
+            print("Your input need to be numeric")
 
         else:
-            print(f"You choose door number {user_selection}")
-            userDoor = listOfPrize[user_selection - 1]
+            if firstChoice not in range(1, 4):
+                print("Your choice need to be between 1-3 inclusive")
 
-            #def OpenADoor
-            #Open a door which has "Goat" && not userDoor
+            else:
+                print(f"You chose door number {firstChoice}")
+                userDoorIndex = firstChoice - 1
 
-            i = 0
-            while i < len(listOfPrize):
+                #def OpenADoor
+                i = 0
+                while True:
+                    while (i < len(listOfPrize)):
+                        if listOfPrize[i] != 'Car' and i != userDoorIndex:
+                                firstDoorIndex = i
+                                break
+                        else:
+                            i += 1
 
-                if listOfPrize[i] == "Goat":
-                   if user_selection is not i:
-                       print(listOfPrize[i])
+                    print(f"Let's open door {firstDoorIndex + 1}")
+                    print(f"There is... {listOfPrize[i]}")
 
-                        ????
+                    #def SwitchDoor
+                    lastChoice = input("Would you like to switch the door? y/n").lower()
+                    if lastChoice == 'n':
+                        print(f"Let's open Door {firstChoice}")
+                        print(f"The door left has...{listOfPrize[userDoorIndex]}")
+                        break
 
+                    elif lastChoice == 'y':
 
+                        del listOfPrize[firstDoorIndex]
 
+                        del listOfPrize[userDoorIndex]
+                        print(f"The door left has...{listOfPrize}")
+                        break
+
+                    else:
+                        print("Your input should be y or n")
+
+                if (listOfPrize[userDoorIndex] == "Car"):
+                    print("Congrats! You won!")
+                else:
+                    print("boo")
+                break
 
 
 
