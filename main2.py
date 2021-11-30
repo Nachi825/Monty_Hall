@@ -1,11 +1,35 @@
 import random
+import sys
+from PyQt5.QtWidgets import QListWidget, QLineEdit
+from PyQt5.QtGui import *
+from PyQt5.QtCore import *
+from PyQt5 import QtWidgets
+
+'''def GUI():
+    #Create window
+    app = QtWidgets.QApplication(sys.argv)
+    windowExample = QtWidgets.QWidget()
+
+    btn = QtWidgets.QPushButton(windowExample)
+
+    btn.setText('Guess')
+    btn.move(100, 50)
+
+    windowExample.setGeometry(0, 0, 400, 400)
+    windowExample.setWindowTitle('Monty Hall Game')
+    windowExample.show()
+    sys.exit(app.exec_())
+
+    #Create texbox'''
+
+
 
 def main():
 
     #def assignPrize
     listOfPrize = ["Goat", "Goat", "Car"]
     random.shuffle(listOfPrize)
-    print(listOfPrize)
+    #print(listOfPrize)
 
     #def user_selection
     while True:
@@ -57,11 +81,12 @@ def main():
                 if (listOfPrize[userDoorIndex] == "Car"):
                     print("Congrats! You won!")
                 else:
-                    print("boo")
+                    print("You lose...")
                 break
 
 
 
 
 if __name__ == '__main__':
+    GUI()
     main()
