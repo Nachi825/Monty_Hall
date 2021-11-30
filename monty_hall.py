@@ -11,7 +11,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 import random
 
-
 class Ui_MainWindow(object):
 
     # def assignPrize
@@ -58,6 +57,7 @@ class Ui_MainWindow(object):
         self.Btn.setText(_translate("MainWindow", "Send"))
         self.Output.setText(_translate("MainWindow", "Which door would you like to pick? 1-3"))
 
+
     def Monty_Hall(self, listOfPrize):
 
         # def user_selection
@@ -75,14 +75,16 @@ class Ui_MainWindow(object):
             else:
                 self.Output.setText(f"You chose door number {userInput}")
                 userDoorIndex = userInput - 1
-
-                # def OpenADoor
                 i = 0
+                print('fine until here')
+
                 while (i < len(listOfPrize)):
                     if listOfPrize[i] != 'Car' and i != userDoorIndex:
                         firstDoorIndex = i
+
                     else:
                         i += 1
+
 
                 self.Output.setText(f"Let's open door {firstDoorIndex + 1}")
                 self.Output.setText(f"There is... {listOfPrize[i]}")
@@ -108,6 +110,10 @@ class Ui_MainWindow(object):
 
             else:
                 self.Output.setText("You lose...")
+
+
+
+
 
 
 
