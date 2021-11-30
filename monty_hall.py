@@ -13,11 +13,6 @@ import random
 
 class Ui_MainWindow(object):
 
-    # def assignPrize
-    listOfPrize = ["Goat", "Goat", "Car"]
-    random.shuffle(listOfPrize)
-    print(listOfPrize)
-
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(543, 372)
@@ -60,6 +55,10 @@ class Ui_MainWindow(object):
 
     def Monty_Hall(self, listOfPrize):
 
+        listOfPrize = ["Goat", "Goat", "Car"]
+        random.shuffle(listOfPrize)
+        print(listOfPrize)
+
         # def user_selection
         userInput = self.entry.text()
         try:
@@ -75,16 +74,16 @@ class Ui_MainWindow(object):
             else:
                 self.Output.setText(f"You chose door number {userInput}")
                 userDoorIndex = userInput - 1
+                print(userDoorIndex)
                 i = 0
-                print('fine until here')
 
-                while (i < len(listOfPrize)):
+                for i in range(3):
+                    print(i)
                     if listOfPrize[i] != 'Car' and i != userDoorIndex:
+                        print(f"list of prize {listOfPrize[i]}")
+                        print(f"user index {userDoorIndex}")
+
                         firstDoorIndex = i
-
-                    else:
-                        i += 1
-
 
                 self.Output.setText(f"Let's open door {firstDoorIndex + 1}")
                 self.Output.setText(f"There is... {listOfPrize[i]}")
