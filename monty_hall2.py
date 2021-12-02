@@ -67,7 +67,6 @@ class Ui_MainWindow(object):
 
         #self.Output.setText(f"You chose door number {userInput}")
         userDoorIndex = userInput - 1
-        print(userDoorIndex)
         i = 0
 
         for i in range(3):
@@ -81,11 +80,8 @@ class Ui_MainWindow(object):
                             f" There is {listOfPrize[i]}" +
                             " Switch the door? y/n")
 
-        print(f"Let's open door {firstDoorIndex + 1}"+
-                            f" There is {listOfPrize[i]}" +
-                            " Switch the door? y/n")
-
         lastChoice = self.entry.text().lower()
+
 
         if lastChoice == 'n':
             self.Output.setText(f"Let's open Door {userInput}" +
@@ -97,6 +93,12 @@ class Ui_MainWindow(object):
 
             del listOfPrize[userDoorIndex]
             self.Output.setText(f"The door left has...{listOfPrize}")
+
+        if (listOfPrize[userDoorIndex] == "Car"):
+            self.Output.setText("Congrats! You won!")
+
+        else:
+            self.Output.setText("You lose...")
 
 
 
