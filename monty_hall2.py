@@ -10,6 +10,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 import random
+import time
 
 #Generate UI class from PyQt designer
 
@@ -62,8 +63,48 @@ class Ui_MainWindow(object):
 
         # def user_selection
         userInput = self.entry.text()
-        try:
+        userInput = int(userInput)
+
+        #self.Output.setText(f"You chose door number {userInput}")
+        userDoorIndex = userInput - 1
+        print(userDoorIndex)
+        i = 0
+
+        for i in range(3):
+            if listOfPrize[i] != 'Car' and i != userDoorIndex:
+                firstDoorIndex = i
+
+        self.entry.setText("")
+
+        self.Output.setText(f"You chose door number {userInput}" +
+                            f"Let's open door {firstDoorIndex + 1}"+
+                            f" There is {listOfPrize[i]}" +
+                            " Switch the door? y/n")
+
+        print(f"Let's open door {firstDoorIndex + 1}"+
+                            f" There is {listOfPrize[i]}" +
+                            " Switch the door? y/n")
+
+        lastChoice = self.entry.text().lower()
+
+        if lastChoice == 'n':
+            self.Output.setText(f"Let's open Door {userInput}" +
+                                f"The door left has...{listOfPrize[userDoorIndex]}")
+            #self.Output.setText(f"The door left has...{listOfPrize[userDoorIndex]}")
+
+        else:
+            del listOfPrize[firstDoorIndex]
+
+            del listOfPrize[userDoorIndex]
+            self.Output.setText(f"The door left has...{listOfPrize}")
+
+
+
+
+        '''try:
             userInput = int(userInput)
+            
+            if 
 
         except ValueError:
             self.Output.setText("Your input need to be numeric")
@@ -105,7 +146,7 @@ class Ui_MainWindow(object):
             self.Output.setText("Congrats! You won!")
 
         else:
-            self.Output.setText("You lose...")
+            self.Output.setText("You lose...")'''
 
 
 
